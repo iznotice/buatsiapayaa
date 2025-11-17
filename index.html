@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Surat untuk Bilqiisss</title>
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #7b2ff7, #f107a3);
+            color: white;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .surat-box {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            margin-bottom: 30px;
+        }
+
+        /* Reaksi ala Wattpad */
+        .reactions {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            font-size: 25px;
+        }
+        .reaction-btn {
+            cursor: pointer;
+            user-select: none;
+            transition: 0.2s;
+        }
+        .reaction-btn:hover {
+            transform: scale(1.2);
+        }
+
+        /* Komentar */
+        .comment-section, .reply-section {
+            margin-top: 30px;
+            background: rgba(255,255,255,0.15);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+        }
+
+        button {
+            margin-top: 10px;
+            background: #ffffff;
+            color: #7b2ff7;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #f3d9ff;
+        }
+
+        .comment-list {
+            margin-top: 15px;
+        }
+
+        .comment {
+            background: rgba(255,255,255,0.2);
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        /* Music box */
+        .music-box {
+            background: rgba(255,255,255,0.15);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Surat untuk Bilqiisss 💜</h1>
+
+    <div class="surat-box">
+        <p>
+            "Maaf banget aku udah ngerepotin kamu selama aku sakit.  
+            Jujurly aku sendiri juga ga suka kalo aku sakit.  
+            Aku ga pernah jaga kesehatanku sendiri, aku selalu haus apresiasi, ikut barata laaa.  
+            Padahal dari aku kecil aku juga dibilang yang paling kerempeng, paling ga sehat lah pokoknya.  
+            Emm, makasih banyak yaaaa.  
+            Aku buat ini gabut aja soalnya, wkwk."
+            <br><br>
+            — Dari aku, untuk Bilqiisss 💜
+        </p>
+
+        <!-- Reaksi ala Wattpad -->
+        <div class="reactions">
+            <span class="reaction-btn" onclick="react('❤️')">❤️</span>
+            <span class="reaction-btn" onclick="react('😆')">😆</span>
+            <span class="reaction-btn" onclick="react('😢')">😢</span>
+            <span class="reaction-btn" onclick="react('🤍')">🤍</span>
+            <span class="reaction-btn" onclick="react('✨')">✨</span>
+        </div>
+        <p id="reaction-output" style="margin-top:10px;font-size:18px;"></p>
+    </div>
+
+    <!-- Music Box -->
+    <div class="music-box">
+        <h3>Putar Musik 🎶 (SEVENTEEN & EXO)</h3>
+        <p>Klik lagu di bawah untuk memutar:</p>
+
+        <!-- YouTube embed -->
+        <button onclick="playMusic('https://www.youtube.com/embed/o1uZ4e5yI9M')">SEVENTEEN – Cheers to Youth</button><br>
+        <button onclick="playMusic('https://www.youtube.com/embed/S4fdxk24qbQ')">EXO – Love Shot</button>
+
+        <div style="margin-top:15px;">
+            <iframe id="music-player" width="100%" height="200" style="border-radius:10px;" src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Komentar -->
+    <div class="comment-section">
+        <h3>Komentar</h3>
+        <textarea id="comment-input" placeholder="Tulis komentar..."></textarea>
+        <button onclick="addComment()">Kirim</button>
+
+        <div class="comment-list" id="comment-list"></div>
+    </div>
+
+    <!-- Balasan Surat -->
+    <div class="reply-section">
+        <h3>Balasan dari Bilqiisss 💌</h3>
+        <textarea id="reply-input" placeholder="Tulis balasan surat..."></textarea>
+        <button onclick="addReply()">Kirim Balasan</button>
+
+        <div class="comment-list" id="reply-list"></div>
+    </div>
+
+</div>
+
+<script>
+    function react(symbol) {
+        document.getElementById("reaction-output").innerText = "Kamu memberi reaksi: " + symbol;
+    }
+
+    function playMusic(url) {
+        document.getElementById("music-player").src = url;
+    }
+
+    function addComment() {
+        const input = document.getElementById("comment-input");
+        if (input.value.trim() === "") return;
+
+        const div = document.createElement("div");
+        div.className = "comment";
+        div.innerText = input.value;
+
+        document.getElementById("comment-list").appendChild(div);
+        input.value = "";
+    }
+
+    function addReply() {
+        const input = document.getElementById("reply-input");
+        if (input.value.trim() === "") return;
+
+        const div = document.createElement("div");
+        div.className = "comment";
+        div.innerText = input.value;
+
+        document.getElementById("reply-list").appendChild(div);
+        input.value = "";
+    }
+</script>
+
+</body>
+</html>
